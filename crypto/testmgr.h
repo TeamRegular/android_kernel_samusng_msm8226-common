@@ -1312,7 +1312,11 @@ static struct hash_testvec hmac_sha1_tv_template[] = {
 		.plaintext = "Hi There",
 		.psize	= 8,
 		.digest	= "\xb6\x17\x31\x86\x55\x05\x72\x64"
+#if FIPS_FUNC_TEST == 12
+			  "\xe3\x8b\xc0\xb6\xfb\x37\x8c\x8e\xf1"
+#else
 			  "\xe2\x8b\xc0\xb6\xfb\x37\x8c\x8e\xf1"
+#endif
 			  "\x46\xbe",
 	}, {
 		.key	= "Jefe",
